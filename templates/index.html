@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI</title>
+  <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <!-- Compiled and minified JavaScript -->
+    <style>
+
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  font-size: 36px;
+}
+
+.brand-text {
+  margin-left: 10px;
+  color: white; /* Ensure text color contrasts with the navbar background */
+}
+
+.right a {
+  color: white; /* Link color */
+  font-size: 16px; /* Adjust font size as needed */
+}
+
+.right {
+  margin-left: auto;
+}
+
+
+
+div.main {
+    padding: 5px 50px 75px 50px;
+}
+
+span,img {
+    vertical-align: middle;
+ }
+
+.brand-logo > span,.brand-logo > img {
+    vertical-align: middle;
+}
+  
+
+  .nav-wrapper {
+    background-color: #3a4f6b; /* Replace this with the dominant color from your image */
+    padding: 0 20px;
+    margin-top: 1px;
+    height: 100px;
+    text-align: left;
+  }
+
+  .nav-wrapper .brand-logo {
+    display: flex;
+    align-items: left;
+  }
+
+  .nav-wrapper .brand-logo img {
+    margin-right: 10px;
+  }
+
+  .nav-wrapper .right > li > a {
+    color: white;
+  }
+  .circle {
+    margin-top: 10px;
+    border-radius: 10%;
+  }
+  
+  .rounded {
+    border-radius: 100px;
+  }
+  
+  .nav-wrapper {
+    text-align: left;
+  }
+  
+  .brand-logo {
+    margin: 0 auto;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+  
+  .brand-logo img {
+    margin-right: 10px;
+  }
+  
+  .brand-logo span {
+    font-size: 32px;
+    color: white;
+    vertical-align: middle;
+  }
+  .card-panel {
+    padding: 20px;
+    border-radius: 8px;
+  }
+  .card-title{
+    font-size: 100px;
+  }
+  .card-panel h4 {
+    padding: 10px;
+    background-color: #e0f7fa; /* Cyan lighten-5 */
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+
+  .striped > tbody > tr:nth-child(odd) {
+    background-color: #f0f4c3; /* Light green lighten-5 for odd rows */
+  }
+
+  .striped > tbody > tr:nth-child(even) {
+    background-color: #f9fbe7; /* Light green lighten-5 for even rows */
+  }
+
+  table.striped thead {
+    background-color: #b2dfdb; /* Cyan lighten-4 */
+  }
+
+  table.striped th {
+    color: #004d40; /* Darker cyan */
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  table.striped td {
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  .valign-wrapper img {
+    margin-left: 5px;
+  }
+
+  .card h3 {
+    font-weight: bold;
+    color: #00796b; /* Teal */
+  }
+
+
+  #time {
+    font-size: 1.2rem;
+    color: #00796b;
+  }
+
+  .right h4 {
+    color: #00796b;
+  }
+
+  .right p {
+    color: #004d40;
+  }
+
+  /* Adjust spacing in the card content */
+   
+  .nav-wrapper .right {
+  margin-right: 20px; /* Adjust margin as needed */
+}
+
+.nav-wrapper .right a {
+  color: white; /* Ensure the link text color contrasts with the navbar background */
+  font-size: 16px; /* Adjust the font size */
+  text-transform: uppercase; /* Optional: make the text uppercase */
+  font-weight: bold; /* Optional: make the text bold */
+}
+.horizontal-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .horizontal-menu li {
+    margin-left: 20px;
+  }
+
+  .horizontal-menu a {
+    color: white; /* Ensure the text color contrasts with the background */
+    font-size: 16px;
+    text-transform: uppercase; /* Optional: make the text uppercase */
+    font-weight: bold; /* Optional: make the text bold */
+  }
+
+  .horizontal-menu a:hover {
+    text-decoration: underline; /* Add an underline on hover */
+  }
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
+</head>
+<body class="main">
+  <div class="nav-wrapper">
+    <div class="nav-content">
+      <a href="#" class="brand-logo">
+        <img src="../static/images/6905345.jpg" height="60px" width="60px" class="circle responsive-img">
+        <span class="brand-text">Essential Commodities Price Monitoring</span>
+      </a>
+      
+      <!-- Right-aligned link -->
+      <ul class="right horizontal-menu">
+        <li><a href="http://localhost:5000/" target="_blank">Home</a></li>
+        <li><a href="http://localhost:5000/com_list" target="_blank">Commodities</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  
+  
+  
+
+
+
+    <div class="row">
+    <div class="col s9" style="margin: 30px 30px  0px 12.5%">
+
+      <div class="card grey lighten-3">
+        <div class="card-content black-text">
+          <h3>Star Commodity Prediction</h3>
+          <span id="time">{{ context.sixmonths[0][0] }}</span>
+          <div class="row">
+            <!-- Left Side -->
+            <div class="col s6">
+              <table>
+                <tr>
+                  <td><h5 id="crop1">{{ context.sixmonths[0][1] }}</h5></td>
+                </tr>
+                <tr>
+                  <td><h4 id="price1">₹{{ context.sixmonths[0][2] }}</h4></td>
+                </tr>
+                <tr>
+                  <td class="valign-wrapper"><p id="pos-change">{{ context.sixmonths[0][3] }}%</p></td>
+                  <td><img id="change1" src="../static/gain-icon.png" height="20" width="20"></td>
+                </tr>
+              </table>
+            </div>
+            <!-- Right Side -->
+            <div class="col s6">
+              <table>
+                <tr>
+                  <td><h5 id="crop2">{{ context.sixmonths[0][4] }}</h5></td>
+                </tr>
+                <tr>
+                  <td><h4 id="price2">₹{{ context.sixmonths[0][5] }}</h4></td>
+                </tr>
+                <tr>
+                  <td class="valign-wrapper"><p id="neg-change">{{ context.sixmonths[0][6] }}%</p></td>
+                  <td><img id="change2" src="../static/loss-icon.png" height="20" width="20"></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+<div class="row">
+      <div class="card-panel col s11" style="margin: 30px 30px 30px 50px">
+        <h4 class="cyan lighten-5">Top Gainers (Current trends)</h4>
+        <table class="striped">
+          <thead>
+            <tr>
+              <th>Item Name</th>
+              <th>Price (per Qtl.)</th>
+              <th>Change</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in context['top5'] %}
+            <tr>
+              <td>{{ item[0] }}</td>
+              <td>₹{{ item[1] }}</td>
+              <td class="valign-wrapper">{{ item[2] }}% <img src="../static/gain-icon.png" height="25" width="25"></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <div class="card-panel">
+          <h4 class="cyan lighten-5">Top Losers (Current trends)</h4>
+          <table class="striped">
+            <thead>
+              <tr>
+                <th>Item Name</th>
+                <th>Price (per Qtl.)</th>
+                <th>Change</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in context['bottom5'] %}
+              <tr>
+                <td>{{ item[0] }}</td>
+                <td>₹{{ item[1] }}</td>
+                <td class="valign-wrapper">{{ item[2] }}% <img src="../static/loss-icon.png" height="25" width="25"></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+    </div>
+    </div>
+    <script>
+      function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+
+      async function updateData(i) {
+        updateTime(i);
+        updateCrop1(i);
+        await sleep(200);
+        updatePrice1(i);
+        await sleep(200);
+        updateChange1(i);
+        await sleep(200);
+        updateCrop2(i);
+        await sleep(200);
+        updatePrice2(i);
+        await sleep(200);
+        updateChange2(i);
+      }
+
+      function updateTime(i) {
+        $('#time').load(`/ticker/0/${i}`);
+      }
+
+      function updateCrop1(i) {
+        $('#crop1').load(`/ticker/1/${i}`);
+      }
+
+      function updatePrice1(i) {
+        $('#price1').load(`/ticker/2/${i}`);
+      }
+
+      function updateChange1(i) {
+        $('#pos-change').load(`/ticker/3/${i}`, function() {
+          let change = parseFloat($('#pos-change').text());
+          $('#change1').attr('src', change >= 0 ? '../static/gain-icon.png' : '../static/loss-icon.png');
+        });
+      }
+
+      function updateCrop2(i) {
+        $('#crop2').load(`/ticker/4/${i}`);
+      }
+
+      function updatePrice2(i) {
+        $('#price2').load(`/ticker/5/${i}`);
+      }
+
+      function updateChange2(i) {
+        $('#neg-change').load(`/ticker/6/${i}`, function() {
+          let change = parseFloat($('#neg-change').text());
+          $('#change2').attr('src', change >= 0 ? '../static/gain-icon.png' : '../static/loss-icon.png');
+        });
+      }
+
+      $(document).ready(function() {
+        let i = 0;
+        setInterval(function() {
+          i = (i + 1) % 5;
+          updateData(i);
+        }, 4000);
+      });
+    </script>
+
+  </div>
+
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $('.slider').slider({full_width :true});
+  });
+  document.querySelectorAll('.commodity-card').forEach(card => {
+    card.addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent default anchor behavior
+      window.location.href = this.getAttribute('href'); // Redirect to the link's href
+    });
+  });
+</script>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</html>

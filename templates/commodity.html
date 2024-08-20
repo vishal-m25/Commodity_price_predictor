@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI</title>
+  <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified JavaScript -->
+     <style>
+
+        .nav-wrapper .right a {
+  color: white; /* Ensure the link text color contrasts with the navbar background */
+  font-size: 16px; /* Adjust the font size */
+  text-transform: uppercase; /* Optional: make the text uppercase */
+  font-weight: bold; /* Optional: make the text bold */
+}
+  .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+  
+  .brand-logo {
+  display: flex;
+  align-items: center;
+  font-size: 36px;
+}
+.nav-wrapper .brand-logo {
+    display: flex;
+    align-items: left;
+  }
+  .nav-wrapper {
+    background-color: #3a4f6b; /* Replace this with the dominant color from your image */
+    padding: 0 20px;
+    margin-top: 1px;
+    height: 100px;
+    text-align: left;
+  }
+
+.brand-text {
+  margin-left: 10px;
+  color: white; /* Ensure text color contrasts with the navbar background */
+}
+
+.right a {
+  color: white; /* Link color */
+  font-size: 16px; /* Adjust font size as needed */
+  font-weight: bold;
+}
+  
+  .brand-logo img {
+    margin-right: 10px;
+  }
+  .brand-logo {
+    margin: 0 auto;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+  .right {
+    margin-left: auto;
+    margin-right: 20px; /* Adjust margin as needed */
+  }
+  .brand-logo > span,.brand-logo > img {
+    vertical-align: middle;
+}
+.brand-logo span {
+    font-size: 32px;
+    color: white;
+    vertical-align: middle;
+  }
+  .circle {
+    margin-top: 10px;
+    border-radius: 10%;
+  }
+  
+  .rounded {
+    border-radius: 100px;
+  }
+  
+  .card-panel {
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .card-title {
+    font-size: 100px;
+  }
+  
+  .card-panel h4 {
+    padding: 10px;
+    background-color: #e0f7fa; /* Cyan lighten-5 */
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  
+  .striped > tbody > tr:nth-child(odd) {
+    background-color: #f0f4c3; /* Light green lighten-5 for odd rows */
+  }
+  
+  .striped > tbody > tr:nth-child(even) {
+    background-color: #f9fbe7; /* Light green lighten-5 for even rows */
+  }
+  
+  table.striped thead {
+    background-color: #b2dfdb; /* Cyan lighten-4 */
+  }
+  
+  table.striped th {
+    color: #004d40; /* Darker cyan */
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table.striped td {
+    padding: 15px;
+    font-size: 16px;
+  }
+  
+  .valign-wrapper img {
+    margin-left: 5px;
+  }
+  
+  .card h3 {
+    font-weight: bold;
+    color: #00796b; /* Teal */
+  }
+  .nav-wrapper .right {
+  margin-right: 20px; /* Adjust margin as needed */
+}
+  
+  
+  
+  .card-content table {
+    font-size: 10px;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .card-content td {
+    vertical-align: top;
+  }
+  
+  .commodity-card .card {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  .commodity-card:hover .card {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+  }
+  
+  .commodity-card {
+    text-decoration: none;
+  }
+  
+  .commodity-card .card-title {
+    transition: color 0.3s ease;
+  }
+  
+  .commodity-card:hover .card-title {
+    color: #00796b; /* Teal color for emphasis */
+    font-weight: 500;
+  }
+  .horizontal-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .horizontal-menu li {
+    margin-left: 20px;
+  }
+
+  .horizontal-menu a {
+    color: white; /* Ensure the text color contrasts with the background */
+    font-size: 16px;
+    text-transform: uppercase; /* Optional: make the text uppercase */
+    font-weight: bold; /* Optional: make the text bold */
+  }
+
+  .horizontal-menu a:hover {
+    text-decoration: underline; /* Add an underline on hover */
+  }
+    </style>
+        
+</head>
+<body >
+  <div class="main">
+    <div class="nav-wrapper">
+      <div class="nav-content">
+        <a href="#" class="brand-logo">
+          <img src="../static/images/6905345.jpg" height="60px" width="60px" class="circle responsive-img">
+          <span class="brand-text">Essential Commodities Price Monitoring</span>
+        </a>
+        
+        <!-- Right-aligned link -->
+        <ul class="right horizontal-menu">
+          <li><a href="http://localhost:5000/" target="_blank">Home</a></li>
+          <li><a href="http://localhost:5000/com_list" target="_blank">Commodities</a></li>
+        </ul>
+      </div>
+    </div>
+<center><h2 class="header">{{context.name}}</h2></center>
+    <div class="row" style="margin-left:30px">
+      <div class="col s8 m7">
+        <div class="card horizontal medium hoverable">
+          <div class="card-image">
+            <img src="{{context.image_url}}" alt="Crop Image">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <table class="striped highlight">
+                <tr>
+                  <td><strong>Current Price</strong></td>
+                  <td><b>₹ {{context.current_price}} / ql</b></td>
+                </tr>
+                <tr>
+                  <td><strong>Prime Location</strong></td>
+                  <td><b>{{context.prime_loc}}</b></td>
+                </tr>
+                <tr>
+                  <td><strong>Crop Type</strong></td>
+                  <td><b>{{context.type_c}}</b></td>
+                </tr>
+                <tr>
+                  <td><strong>Export</strong></td>
+                  <td><b>{{context.export}}</b></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col s4">
+        <div class="card grey lighten-3 hoverable">
+          <div class="card-content black-text">
+            <span class="card-title teal-text">Brief Forecast</span>
+            <table class="highlight">
+              <tr>
+                <td><p>Min. crop price time</p></td>
+                <td><h5>{{context.min_crop[0]}}</h5></td>
+                <td><h4 class="green-text">₹{{context.min_crop[1]}}</h4></td>
+              </tr>
+              <tr>
+                <td><p>Max. crop price time</p></td>
+                <td><h5>{{context.max_crop[0]}}</h5></td>
+                <td><h4 class="red-text">₹{{context.max_crop[1]}}</h4></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+</div>
+<div class="row" style="margin-left: 30px;">
+  <!-- Forecast Trends Table -->
+  <div class="col s4">
+    <h5 class="teal-text">Forecast Trends</h5>
+    <table class="striped highlight">
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Price (per Qtl.)</th>
+          <th>Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in context.forecast_values %}
+        <tr>
+          <td>{{item[0]}}</td>
+          <td>₹{{item[1]}}</td>
+          <td class="valign-wrapper">
+            {{item[2]}}% 
+            {% if item[2] >= 0 %}
+            <img src="../static/gain-icon.png" alt="Gain" height="25" width="25" class="ml-2">
+            {% else %}
+            <img src="../static/loss-icon.png" alt="Loss" height="25" width="25" class="ml-2">
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Space between the table and charts -->
+  <div class="col s1"></div>
+
+  <!-- Next Year Price Chart -->
+  <div class="chartjs-wrapper col s7 offset-s1">
+    <h5 class="teal-text">Next Year Price Forecast</h5>
+    <div class="card hoverable">
+      <div class="card-content">
+        <canvas id="chartjs-0" class="chartjs" style="width:100% !important; height:400px !important;"></canvas>
+      </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script> <!-- Ensure Chart.js is included -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    new Chart(document.getElementById("chartjs-0"), {
+      type: "line",
+      data: {
+        labels: {{context.forecast_x | safe}},
+        datasets: [{
+          label: "Next Year Price",
+          data: {{context.forecast_y}},
+          fill: false,
+          borderColor: "rgb(75, 192, 192)",
+          lineTension: 0.1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          yAxes: [{
+            display: true,
+            ticks: {
+              suggestedMin: 1000,
+              stepSize: 200
+            }
+          }]
+        }
+      }
+    });
+  });
+</script>
+
+  <!-- Previous Year Price Chart -->
+  <div class="chartjs-wrapper col s7 offset-s1">
+    <h5 class="teal-text">Previous Year Price Comparison</h5>
+    <div class="card hoverable">
+      <div class="card-content">
+        <canvas id="chartjs-1" class="chartjs" style="width:100% !important; height:400px !important;"></canvas>
+      </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script> <!-- Ensure this is included -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    new Chart(document.getElementById("chartjs-1"), {
+      type: "line",
+      data: {
+        labels: {{context.previous_x | safe}},
+        datasets: [{
+          label: "Previous Year Price",
+          data: {{context.previous_y}},
+          fill: false,
+          borderColor: "rgb(75, 192, 192)",
+          lineTension: 0.1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          yAxes: [{
+            display: true,
+            ticks: {
+              suggestedMin: 1000,
+              stepSize: 200
+            }
+          }]
+        }
+      }
+    });
+  });
+</script>
+
+</div>
+
+
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
